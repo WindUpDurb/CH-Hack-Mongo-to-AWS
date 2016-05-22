@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+    <script src="/bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+    <script src="/bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
+
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/bootstrap-material-design/dist/css/ripples.min.css">
+    <link rel="stylesheet" href="/bower_components/bootstrap-material-design/dist/css/bootstrap-material-design.min.css">
+
+    <!--Personal CSS-->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!--Personal Angular-->
+    <script src="/js/concat.js"></script>
+
+
+
+</head>
+<body ng-app="nameOfApp" ng-controller="mainController">
+
+<div class="container">
+    Single File Upload
+    <form ng-submit="submitFile()">
+        <button class="button" ngf-select ng-model="file" name="newFile" ngf-pattern="'*'"
+                ngf-accept="'*'" ngf-max-size="20MB">Select</button>
+
+        <button>Upload</button>
+    </form>
+</div>
+
+
+<div class="container">
+    Multiple File Upload
+    <form ng-submit="submitMultipleFiles()">
+        <button class="button" ngf-multiple="true" ngf-select ng-model="newFiles" name="newFiles" ngf-pattern="'*'"
+                ngf-accept="'*'">Select</button>
+        <button>Upload</button>
+    </form>
+</div>
+
+<div class="container">
+
+    <form ng-submit="retrieveFile()">
+        <input ng-model="fileToRetrieve.key" type="text" placeholder="Key Name Stored on AWS">
+        <button>Retrieve File</button>
+    </form>
+
+    <pre>{{fileReceived}}</pre>
+</div>
+
+
+
+
+</body>
+</html>
