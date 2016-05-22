@@ -93,19 +93,38 @@ toAWS.uploadFiles = function (filePackage, callback) {
 
 
 
-toAWS.retrieveAllFrom = function (master_object, filePackage, callback) {
+toAWS.retrieveAllFrom = function (filePackage, callback) {
+    let packageToRetrieve;
     if (filePackage === "CorePackage") {
-        coreInMongo.find({}, function (error, listOfFile) {
-            if (error) return callback(error);
-            callback(listOfFile);
-        })
+        packageToRetrieve = "CorePackage";
     }
+    //to store the contents of each file
+    //which will be returned at the conclusion
+    let packageContentsArray = {};
+
+    coreInMongo.find({}, function (error, listOfFiles) {
+        if (error) return callback(error);
+        console.log("list: ", listOfFiles);
+
+        async.forEachOf(listOfFiles, function (file, index, callback2) {
+            let params = {
+                Bucket: file.Bucket,
+                Key: file.Key
+            };
+            s3.getObject(params, function (error, downloadedFile) {
+                if (error) return callback2(error);
+                var bufferedData = downloadedFile.Body.toString("utf-8");
+                packageContentsArray[file.Key] = bufferedData;
+                console.log("bufferedData: ", bufferedData);
+                callback2(null, bufferedData);
+            });
+        }, function (error) {
+            if (error) return callback(error);
+            //return the object containing the package
+            callback(error, packageContentsArray);
+        })
+    });
 };
 
-/*toAWS.retrieveAllFrom(masterObject, "CorePackage", function (error, list) {
-    if (error) console.log(error);
-    console.log("Here")
-    console.log("list: ", list);
-});*/
 
 module.exports = toAWS;

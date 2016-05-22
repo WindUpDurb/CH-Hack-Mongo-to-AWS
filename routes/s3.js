@@ -8,15 +8,14 @@ var upload = multer({ storage: multer.memoryStorage()});
 var s3 = require("../models/S3");
 var fileToAWS = require("../models/fileToAWS");
 
-/*
 router.post("/test", function (request, response) {
    
-    fileToAWS.retrieveFrom(null, function (error) {
-        response.send();
+    fileToAWS.retrieveAllFrom("CorePackage", function (error, packageContents) {
+        if (error) response.send(error);
+        response.send(packageContents);
     });
     
 });
-*/
 
 
 router.post("/testAdd", function (request, response) {
