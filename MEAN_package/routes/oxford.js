@@ -7,11 +7,37 @@ var Oxford = require('../models/Oxford');
 
 const OXFORD_SECRET = process.env.OXFORD_SECRET;
 console.log('OXFORD_SECRET= ', OXFORD_SECRET || 'OXFORD_SECRET= EMPTY');
+// router.route('/')
+// router.post('/', (req, res) => {
+//   var image = req.body.url;
+//   var options = {
+//     method: 'POST',
+//     url: 'https://api.projectoxford.ai/vision/v1.0/analyze',
+//     qs: {
+//       visualFeatures: 'Categories',
+//       details: 'Celebrities'
+//     },
+//     headers: {
+//       'cache-control': 'no-cache',
+//       'ocp-apim-subscription-key': OXFORD_SECRET,
+//       'content-type': 'application/json'
+//     },
+//     body: {
+//       url: image
+//     },
+//     json: true
+//   };
+//
+//   request(options, function(err, response, body) {
+//     console.log('body ', body);
+//     if(err) return res.status(400).send(err);
+//     Oxford.create(body, res.handle);
+//   });
+// });
 router.route('/')
 .post((req, res) => {
   console.log('req.body.url',req.body.url);
   var image = req.body.url;
-
   var options = {
     method: 'POST',
     url: 'https://api.projectoxford.ai/vision/v1.0/describe',
@@ -19,7 +45,6 @@ router.route('/')
       maxCandidates: '1'
     },
     headers: {
-      'postman-token': 'd811b874-3549-0e1d-0d1f-21347ff4bbfa',
       'cache-control': 'no-cache',
       'ocp-apim-subscription-key': OXFORD_SECRET,
       'content-type': 'application/json'
@@ -29,11 +54,12 @@ router.route('/')
     },
     json: true
   };
-
-  console.log('options: ', options);
   request(options, function(err, response, body) {
+    console.log('body ', body);
     if(err) return res.status(400).send(err);
-    Oxford.create(body, res.handle);
+    Oxford.create(body, (err, data) => {
+      res.status(err ? 400: 200).send(err || body);
+    });
   });
 });
 

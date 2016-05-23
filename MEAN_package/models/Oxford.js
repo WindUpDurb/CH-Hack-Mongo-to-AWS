@@ -3,7 +3,7 @@
 var mongoose = require('mongoose');
 
 var oxfordSchema = new mongoose.Schema({
-  categories    : { type: Array, required: true},
+  description    : { type: Object},
   requestId     : { type: String},
   metadata      : { type: Object}
 });

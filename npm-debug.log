@@ -1,0 +1,98 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/david/.nvm/versions/node/v5.10.1/bin/node',
+1 verbose cli   '/home/david/.nvm/versions/node/v5.10.1/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-global',
+1 verbose cli   'appdmg' ]
+2 info using npm@3.8.3
+3 info using node@v5.10.1
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData appdmg
+8 silly fetchNamedPackageData appdmg
+9 silly mapToRegistry name appdmg
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'appdmg',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   name: 'appdmg',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/appdmg
+14 verbose request uri https://registry.npmjs.org/appdmg
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 11:20:00 PM
+17 verbose request id 053dd4d06199cbf6
+18 verbose etag "6A15ZSNMY9EII5PRF51S2IZXA"
+19 http request GET https://registry.npmjs.org/appdmg
+20 http 304 https://registry.npmjs.org/appdmg
+21 verbose headers { date: 'Mon, 23 May 2016 06:20:00 GMT',
+21 verbose headers   via: '1.1 varnish',
+21 verbose headers   'cache-control': 'max-age=300',
+21 verbose headers   etag: '"6A15ZSNMY9EII5PRF51S2IZXA"',
+21 verbose headers   age: '93',
+21 verbose headers   connection: 'keep-alive',
+21 verbose headers   'x-served-by': 'cache-dfw1826-DFW',
+21 verbose headers   'x-cache': 'HIT',
+21 verbose headers   'x-cache-hits': '1',
+21 verbose headers   'x-timer': 'S1463984400.732657,VS0,VE0',
+21 verbose headers   vary: 'Accept-Encoding' }
+22 silly get cb [ 304,
+22 silly get   { date: 'Mon, 23 May 2016 06:20:00 GMT',
+22 silly get     via: '1.1 varnish',
+22 silly get     'cache-control': 'max-age=300',
+22 silly get     etag: '"6A15ZSNMY9EII5PRF51S2IZXA"',
+22 silly get     age: '93',
+22 silly get     connection: 'keep-alive',
+22 silly get     'x-served-by': 'cache-dfw1826-DFW',
+22 silly get     'x-cache': 'HIT',
+22 silly get     'x-cache-hits': '1',
+22 silly get     'x-timer': 'S1463984400.732657,VS0,VE0',
+22 silly get     vary: 'Accept-Encoding' } ]
+23 verbose etag https://registry.npmjs.org/appdmg from cache
+24 verbose get saving appdmg to /home/david/.npm/registry.npmjs.org/appdmg/.cache.json
+25 verbose correctMkdir /home/david/.npm correctMkdir not in flight; initializing
+26 silly install normalizeTree
+27 silly loadCurrentTree Finishing
+28 silly loadIdealTree Starting
+29 silly install loadIdealTree
+30 silly cloneCurrentTree Starting
+31 silly install cloneCurrentTreeToIdealTree
+32 silly cloneCurrentTree Finishing
+33 silly loadShrinkwrap Starting
+34 silly install loadShrinkwrap
+35 silly loadShrinkwrap Finishing
+36 silly loadAllDepsIntoIdealTree Starting
+37 silly install loadAllDepsIntoIdealTree
+38 silly rollbackFailedOptional Starting
+39 silly rollbackFailedOptional Finishing
+40 silly runTopLevelLifecycles Starting
+41 silly runTopLevelLifecycles Finishing
+42 silly install printInstalled
+43 verbose stack Error: Unsupported platform for appdmg@0.4.5: wanted {"name":"appdmg","version":"0.4.5","license":"MIT","author":{"name":"Linus Unnebäck","email":"linus@folkdatorn.se"},"bin":{"appdmg":"bin/appdmg.js"},"main":"index.js","preferGlobal":true,"dependencies":{"async":"^1.4.2","cp-file":"^3.1.0","ds-store":"^0.1.5","execa":"^0.4.0","fs-temp":"^1.0.0","fs-xattr":"^0.1.14","image-size":"^0.5.0","is-my-json-valid":"^2.13.1","minimist":"^1.1.3","parse-color":"^1.0.0","repeat-string":"^1.5.4"},"engines":{"node":">=0.12"},"os":["darwin"],"repository":{"type":"git","url":"git+ssh://git@github.com/LinusU/node-appdmg.git"},"scripts":{"test":"standard && mocha -b"},"devDependencies":{"capture-window":"^0.1.3","looks-same":"^2.1.0","mocha":"^2.2.5","standard":"^7.0.1"},"gitHead":"da5ad4185188625a753ff79d822850d996973436","description":"Generate beautiful DMG-images for your OS X applications.","bugs":{"url":"https://github.com/LinusU/node-appdmg/issues"},"homepage":"https://github.com/LinusU/node-appdmg#readme","_id":"appdmg@0.4.5","_npmVersion":"3.8.9","_nodeVersion":"6.2.0","_npmUser":{"name":"linusu","email":"linus@folkdatorn.se"},"dist":{"shasum":"47a827865b8a0be48abb3522567e3493d2f1b838","tarball":"https://registry.npmjs.org/appdmg/-/appdmg-0.4.5.tgz"},"maintainers":[{"name":"cstruct","email":"albin@mattsson.io"},{"name":"linusu","email":"linus@folkdatorn.se"}],"_npmOperationalInternal":{"host":"packages-12-west.internal.npmjs.com","tmp":"tmp/appdmg-0.4.5.tgz_1463938029528_0.7859713893849403"},"directories":{},"_requested":{"raw":"appdmg","scope":null,"name":"appdmg","rawSpec":"","spec":"latest","type":"tag"},"_spec":"appdmg","_where":"","_args":[["appdmg",""]],"readme":"ERROR: No README data found!"} (current: {"os":"linux","cpu":"x64"})
+43 verbose stack     at checkPlatform (/home/david/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/npm-install-checks/index.js:45:14)
+43 verbose stack     at thenWarnEngineIssues (/home/david/.nvm/versions/node/v5.10.1/lib/node_modules/npm/lib/install/validate-args.js:41:5)
+43 verbose stack     at /home/david/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/iferr/index.js:13:50
+43 verbose stack     at checkEngine (/home/david/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/npm-install-checks/index.js:24:10)
+43 verbose stack     at module.exports.isInstallable (/home/david/.nvm/versions/node/v5.10.1/lib/node_modules/npm/lib/install/validate-args.js:38:3)
+43 verbose stack     at Array.<anonymous> (/home/david/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/slide/lib/bind-actor.js:15:8)
+43 verbose stack     at LOOP (/home/david/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/slide/lib/chain.js:15:14)
+43 verbose stack     at /home/david/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/slide/lib/chain.js:18:7
+43 verbose stack     at checkSelf (/home/david/.nvm/versions/node/v5.10.1/lib/node_modules/npm/lib/install/validate-args.js:46:72)
+43 verbose stack     at Array.<anonymous> (/home/david/.nvm/versions/node/v5.10.1/lib/node_modules/npm/node_modules/slide/lib/bind-actor.js:15:8)
+44 verbose pkgid appdmg@0.4.5
+45 verbose cwd /home/david/Code/CH-Hack
+46 error Linux 4.2.0-36-generic
+47 error argv "/home/david/.nvm/versions/node/v5.10.1/bin/node" "/home/david/.nvm/versions/node/v5.10.1/bin/npm" "install" "-global" "appdmg"
+48 error node v5.10.1
+49 error npm  v3.8.3
+50 error code EBADPLATFORM
+51 error notsup Not compatible with your operating system or architecture: appdmg@0.4.5
+52 error notsup Valid OS:    darwin
+52 error notsup Valid Arch:  any
+52 error notsup Actual OS:   linux
+52 error notsup Actual Arch: x64
+53 verbose exit [ 1, true ]
