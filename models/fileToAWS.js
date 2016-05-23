@@ -11,13 +11,13 @@ var async = require("async");
 var filendir = require("filendir");
 
 //for dmg file
-var appdmg = require('appdmg');
+//var appdmg = require('appdmg');
 
 
 
 var coreInMongo = require("./awsInMongo");
 
-var pathToCore = path.join(__dirname, "../CorePackage");
+var pathToCore = path.join(__dirname, "../MEAN_package");
 
 var masterObject = {
     //an array of file paths to iterate over
@@ -36,7 +36,7 @@ function getFiles (dir, files_){
         if (fs.statSync(name).isDirectory()){
             getFiles(name, files_);
         } else {
-            let toSplitWith = "/home/david/Code/CH-Hack/CorePackage/";
+            let toSplitWith = "/home/david/Code/CH-Hack/MEAN_package/";
             files_.push(name.split(toSplitWith)[1]);
         }
     }
@@ -158,7 +158,7 @@ toAWS.retrieveAllFrom = function (filePackage, callback) {
             }, function(error) {
                 if (error) return callback(error);
                 
-                createDMG();
+               // createDMG();
                 
                 callback(null)
             });
@@ -167,6 +167,7 @@ toAWS.retrieveAllFrom = function (filePackage, callback) {
     });
 };
 
+/*
 
 var createDMG = function ( ) {
     var ee = appdmg({
@@ -197,6 +198,7 @@ var createDMG = function ( ) {
         // An error occurred
     });
 };
+*/
 
 
 
