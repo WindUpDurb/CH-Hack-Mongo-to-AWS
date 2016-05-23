@@ -11,12 +11,31 @@ var async = require("async");
 
 var coreInMongo = require("./awsInMongo");
 
-var testFile = "fileToUpload.js";
+var pathToCore = path.join(__dirname, "../CorePackage");
 
 var masterObject = {
     //an array of file paths to iterate over
-    CORE_package : ["../fileToUpload.js", "../anotherFile.js"]
+    CORE_package : getFiles(pathToCore)
 };
+
+console.log("master object: ", masterObject);
+console.log("CorePackage.length: ", masterObject.CORE_package.length)
+
+
+function getFiles (dir, files_){
+    files_ = files_ || [];
+    var files = fs.readdirSync(dir);
+    for (var i in files){
+        var name = dir + '/' + files[i];
+        if (fs.statSync(name).isDirectory()){
+            getFiles(name, files_);
+        } else {
+            let toSplitWith = "/home/david/Code/CH-Hack/CorePackage/";
+            files_.push(name.split(toSplitWith)[1]);
+        }
+    }
+    return files_;
+}
 
 
 var toAWS = {};
@@ -58,11 +77,11 @@ toAWS.uploadFiles = function (filePackage, callback) {
     async.forEachOf(packageToGet, function (file, index, callback2) {
 
         //the second for path.join() will either be file or what is below
-        fs.readFile(path.join(__dirname, packageToGet[index]), function (error, data) {
+        fs.readFile(path.join(__dirname, `../CorePackage/${packageToGet[index]}`), function (error, data) {
             let dataBuffer = data;
-            let key = packageToGet[index].split("../")[1];
+            let key = packageToGet[index];
             let params = {
-                Bucket: "corebucket-test-test",
+                Bucket: "i-hope-it-works",
                 Key: key,
                 ACL: "public-read",
                 Body: dataBuffer

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <span class="title">
+    <title>
+      MEAN Package
+    </title>
+  </span>
+
+  <span class="links">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" media="screen" title="no title" charset="utf-8">
+    <!-- SweetAlert.css -->
+    <link rel="stylesheet" href="/bower_components/sweetalert/dist/sweetalert.css">
+    <!-- Style -->
+    <link rel="stylesheet" href="/scss/style.css" media="screen" title="no title" charset="utf-8">
+  </span>
+  <!-- /////////////// -->
+  <span class="scripts">
+    <!-- Angular -->
+    <script src="/bower_components/angular/angular.min.js" charset="utf-8"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js" charset="utf-8"></script>
+
+    <!-- socket io -->
+    <script src="/bower_components/angular-socket-io/socket.min.js" charset="utf-8"></script>
+    <script src="/bower_components/socket.io-client/socket.io.js" charset="utf-8"></script>
+
+    <!-- ng-file-upload -->
+    <script src="/bower_components/ng-file-upload/ng-file-upload.min.js" charset="utf-8"></script>
+    <script src="/bower_components/ng-file-upload/ng-file-upload-shim.min.js" charset="utf-8"></script>
+
+    <!-- angular UI-Bootstrap -->
+    <script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js" charset="utf-8"></script>
+
+    <!-- Jquery (for Bootstrap) -->
+    <script src="/bower_components/jquery/dist/jquery.min.js" charset="utf-8"></script>
+
+    <!-- SweetAlert -->
+    <script src="/bower_components/ngSweetAlert/SweetAlert.min.js"></script>
+    <script src="/bower_components/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="" charset="utf-8"></script>
+
+    <!-- Modules, Controllers, Services -->
+    <script src="/js/modules/mainModule.js" charset="utf-8"></script>
+    <script src="/js/services/DuckDuckGoServices.js" charset="utf-8"></script>
+    <script src="/js/services/s3UploadServices.js" charset="utf-8"></script>
+    <script src="/js/services/OxfordServices.js" charset="utf-8"></script>
+    <script src="/js/controllers/slash.js" charset="utf-8"></script>
+    <script src="/js/controllers/homeCtrl.js" charset="utf-8"></script>
+    <script src="/js/controllers/ddgCtrl.js" charset="utf-8"></script>
+    <script src="/js/controllers/homeCtrl.js" charset="utf-8"></script>
+    <script src="/js/controllers/facesCtrl.js" charset="utf-8"></script>
+    <script src="/js/controllers/s3UploadCtrl.js" charset="utf-8"></script>
+    <script src="/js/controllers/oxfordCtrl.js" charset="utf-8"></script>
+    <script src="/js/controllers/templateForgotCtrl.js" charset="utf-8"></script>
+    <script src="/js/controllers/templateLoginCtrl.js" charset="utf-8"></script>
+    <script src="/js/factories/factories.js" charset="utf-8"></script>
+  </span>
+</head>
+
+<body ng-app="CORE_package">
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">TOGGLE NAV</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" ui-sref="home">Home</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+
+          <li><a ui-sref="s3Upload">S3</a></li>
+          <li><a ui-sref="ddg">DuckDuckGo</a></li>
+          <li><a ui-sref="oxford">Oxford</a></li>
+          <li><a ui-sref="faces">Faces</a></li>
+          <li><a ui-sref="twilio">Twilio</a></li>
+          <li><a ui-sref="templateLogin">LOGIN</a></li>
+          <li><a ui-sref="templateRegister">REGISTER</a></li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="template-header text-center">
+    <i></i>
+    <br>
+  </div>
+  <div class="container">
+    <ui-view>
+      <h1 class="text-center jumbotron">
+        MEAN Stack
+      </h1>
+      <h5>Template</h5>
+      <!-- TEMPLATES -->
+    </ui-view>
+  </div>
+
+</body>
+</html>
